@@ -1,7 +1,7 @@
 import { sequelize } from './db.js'
-import { UserModel } from '../../users/models/user.model.js'
+import { UserHistoryModel } from '../../userHistories/models/userHistory.model.js'
 
-const models = [UserModel]
+const models = [UserHistoryModel]
 
 export const connectionDb = async () => {
     try {

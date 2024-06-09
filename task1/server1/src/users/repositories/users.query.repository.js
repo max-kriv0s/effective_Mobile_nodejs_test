@@ -1,8 +1,8 @@
-import { UsersModel } from '../models/users.model.js'
+import { UserModel } from '../models/user.model.js'
 
 export class UsersQueryRepository {
     constructor() {
-        this.usersModel = UsersModel
+        this.usersModel = UserModel
     }
 
     async getUsers() {

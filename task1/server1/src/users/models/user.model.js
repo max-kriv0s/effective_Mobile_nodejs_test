@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../../core/database/db.js";
 
-export const UsersModel = sequelize.define('users', 
+export const UserModel = sequelize.define('users', 
     {
         id: {
             type: DataTypes.UUID,

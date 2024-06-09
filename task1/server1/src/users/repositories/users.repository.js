@@ -1,13 +1,16 @@
-import { where } from 'sequelize'
-import { UsersModel } from '../models/users.model.js'
+import { UserModel } from '../models/user.model.js'
 
 export class UsersRepository {
     constructor() {
-        this.usersModel = UsersModel
+        this.usersModel = UserModel
     }
 
     async getTransaction() {
         return this.usersModel.sequelize.transaction()
+    }
+
+    async getUserById(id) {
+        return this.usersModel.findOne({ where: { id }})
     }
 
     async create(createUserDto, transaction = undefined) {
@@ -15,6 +18,15 @@ export class UsersRepository {
     }
 
     async update(id, updateUserDto, transaction = undefined) {
-        return this.usersModel.update(updateUserDto, { where: { id }, transaction})
+        return this.usersModel.update(updateUserDto, { 
+            where: { id }, 
+            transaction, 
+            returning: true, 
+            plain: true
+        })
+    }
+
+    async save(user, transaction = undefined) {
+        user.save()
     }
 }

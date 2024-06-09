@@ -19,7 +19,11 @@ export class UsersController {
 
     async updateUser(req, res) {
         try {
-            await this.usersService.updateUser(req.params.id, req.body)
+            const result = await this.usersService.updateUser(req.params.id, req.body)
+            if (!result.isSuccess) {
+                return res.sendStatus(result.errorCode)
+            }
+            
             const userView = await this.usersQueryRepository.getUserById(req.params.id)
             res.send(userView)
         } catch (error) {

@@ -3,7 +3,7 @@ dotenv.config({ path: ['.env.development.local', '.env.development'] })
 
 export const settings = {
     appSettings: {
-        PORT: Number.parseInt(process.env.PORT) || 3001,
+        PORT: Number.parseInt(process.env.PORT) || 3002,
     },
     
     databaseSettings: {
@@ -14,7 +14,4 @@ export const settings = {
         DB_NAME: process.env.DB_NAME,
     },
 
-    historyServiceSettings: {
-        URL_USER_HISTORY_SERVICE: process.env.URL_USER_HISTORY_SERVICE
-    }
 }
