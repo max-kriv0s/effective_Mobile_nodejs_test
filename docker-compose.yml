@@ -1,0 +1,28 @@
+version: '3'
+services:
+  db1:
+    image: postgres
+    container_name: db_for_server1
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5433:5432'
+    volumes:
+      - db_server1:/var/lib/postgresql/data
+  db2:
+    image: postgres
+    container_name: db_for_server2
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5434:5432'
+    volumes:
+      - db_server2:/var/lib/postgresql/data
+
+volumes:
+  db_server1:
+  db_server2:
