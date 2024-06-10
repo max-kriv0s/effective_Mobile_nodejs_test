@@ -18,7 +18,7 @@ export class UserHistoriesController {
 
     async getHistory(req, res) {
         try {
-            const usersHistoriesView = await this.userHistoriesQueryRepository.getHistory()
+            const usersHistoriesView = await this.userHistoriesQueryRepository.getHistory(req.query)
             res.send(usersHistoriesView)
         } catch (error) {
             console.error(error)
