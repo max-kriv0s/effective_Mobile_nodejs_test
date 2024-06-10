@@ -22,7 +22,19 @@ services:
       - '5434:5432'
     volumes:
       - db_server2:/var/lib/postgresql/data
+  db3:
+    image: postgres
+    container_name: db_for_server3
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - '5435:5432'
+    volumes:
+      - db_server3:/var/lib/postgresql/data
 
 volumes:
   db_server1:
   db_server2:
+  db_server3:
